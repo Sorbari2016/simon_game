@@ -3,6 +3,10 @@
 // Create an empty array
 const gamePattern = []; 
 
+// 
+const userClickedPattern = []; 
+
+
 // Array to hold button colors 
 const buttonColours = [
     "red", 
@@ -28,6 +32,13 @@ function nextSequence() {
 
     gamePattern.push(randomChosenColour);  
 } 
+
+const btn = $(".btn"); 
+btn.on("click", function() {
+    const userChosenColour= ($(this).attr("id")); 
+    userClickedPattern.push(userChosenColour); 
+
+})
 
 nextSequence(); 
 
