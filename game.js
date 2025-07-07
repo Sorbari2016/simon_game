@@ -16,10 +16,21 @@ const buttonColours = [
 ]
 
 
+// To check if the game has started
+let started = false; 
 
+// To track the levels
+let level = 0; 
 
 // Generate a random color.
 function nextSequence() {
+
+    // Increase level by 1, each time the function is called
+    level++
+
+    // update level 
+    $("#level-title").text("Level " + level)
+
     const NUMBER = 3;
     const randomNumber = Math.floor(Math.random() * (NUMBER + 1)); 
     const randomChosenColour = buttonColours[randomNumber]; 
@@ -35,8 +46,9 @@ function nextSequence() {
 const btn = $(".btn"); 
 btn.on("click", function() {
     const userChosenColour= ($(this).attr("id")); 
-    userClickedPattern.push(userChosenColour); 
+    userClickedPattern.push(userChosenColour);
     playSound(userChosenColour)
+    animatePress(userChosenColour);
 
 })
 
@@ -46,8 +58,28 @@ function playSound(name) {
     audio.play();
 } 
 
+function animatePress(currentColour) {
+    const pressedBtn = $("#" + currentColour);
+    pressedBtn.addClass("pressed"); 
 
-nextSequence(); 
+    setTimeout(function() {
+        pressedBtn.removeClass("pressed");
+    }, 100);
+}
+
+
+// To detect keypress, & change heading to the level
+$(document).keydown(function() {
+    if (!started) {
+        $("#level-title").text("Level " + level);
+    nextSequence();
+    started = true;
+  }
+    
+})
+
+
+
 
 
 
