@@ -26,8 +26,7 @@ function nextSequence() {
     
     // Use the color generated to select the button with the same id, Add flash
     $("#" + randomChosenColour).fadeIn(100).fadeOut(100).fadeIn(100);
-    let audio = new Audio("../assets/sounds/" + randomChosenColour + ".mp3");
-    audio.play();
+    playSound(randomChosenColour); 
 
 
     gamePattern.push(randomChosenColour);  
@@ -37,8 +36,16 @@ const btn = $(".btn");
 btn.on("click", function() {
     const userChosenColour= ($(this).attr("id")); 
     userClickedPattern.push(userChosenColour); 
+    playSound(userChosenColour)
 
 })
+
+// Function to play sound randomly and by the user
+function playSound(name) {
+    let audio = new Audio("../assets/sounds/" + name + ".mp3");
+    audio.play();
+} 
+
 
 nextSequence(); 
 
