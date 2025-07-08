@@ -4,7 +4,7 @@
 const gamePattern = []; 
 
 // 
-const userClickedPattern = []; 
+let userClickedPattern = []; 
 
 
 // Array to hold button colors 
@@ -25,10 +25,13 @@ let level = 0;
 // Generate a random color.
 function nextSequence() {
 
+    // Reset this once the function runs
+    userClickedPattern = []; 
+
     // Increase level by 1, each time the function is called
     level++
 
-    // update level 
+    // update the heading with current level
     $("#level-title").text("Level " + level)
 
     const NUMBER = 3;
@@ -50,6 +53,7 @@ btn.on("click", function() {
     playSound(userChosenColour)
     animatePress(userChosenColour);
 
+    checkAnswer(userClickedPattern.length - 1); 
 })
 
 // Function to play sound randomly and by the user
@@ -68,16 +72,45 @@ function animatePress(currentColour) {
 }
 
 
-// To detect keypress, & change heading to the level
-$(document).keydown(function() {
+// We use the keypress as a means to start the game
+// To detect keypress, & start the game
+$(document).keydown(function() { //Add evnet listeners to the keys
     if (!started) {
-        $("#level-title").text("Level " + level);
-    nextSequence();
+        $("#level-title").text("Level " + level); // Change heading to Level 1 
+    nextSequence();    // Get computer color
     started = true;
   }
     
 })
 
+
+function checkAnswer(currentLevel) {
+    
+    
+    if (gamePattern[currentLevel] === userClickedPattern[currentLevel]) {
+
+        if (gamePattern.length === userClickedPattern.length) {
+        
+        setTimeout(nextSequence, 100);
+         
+        }                
+        
+    } else {
+        let wrongAudio = new Audio("../assets/wrong.mp3")
+        wrongAudio.play(); 
+
+        const body = $("body"); 
+        body.addClass("game-over"); 
+
+        setTimeout(function() {
+            body.removeClass("game-over");
+        }, 200);
+
+        $("#level-title").text("Game Over, Press Any Key to Restart")
+        
+    }
+    
+}
 
 
 
