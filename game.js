@@ -27,7 +27,7 @@ $(document).keydown(function() { //Add event listeners to the keys
 // Add Eventlisteners to the button
 const btn = $(".btn"); 
 btn.on("click", function() {
-    const userChosenColour= ($(this).attr("id")); 
+    const userChosenColour= ($(this).attr("id")); // To get the id attribute of the button clicked
     userClickedPattern.push(userChosenColour);
     playSound(userChosenColour)
     animatePress(userChosenColour);
@@ -36,7 +36,7 @@ btn.on("click", function() {
 }); 
 
 
-// Check if answers align 
+// Check if answers aligns
 function checkAnswer(currentLevel) {
     
     if (gamePattern[currentLevel] === userClickedPattern[currentLevel]) {
@@ -49,16 +49,14 @@ function checkAnswer(currentLevel) {
         
     } else {
         playSound("wrong");
-        const body = $("body"); 
-        body.addClass("game-over"); 
+        $("body").addClass("game-over"); 
 
         $("#level-title").text("Game Over, Press Any Key to Restart")
 
         setTimeout(function() {
-            body.removeClass("game-over");
+            $("body").removeClass("game-over");
         }, 200);
 
-        
 
         startOver(); 
     }
@@ -77,6 +75,7 @@ function nextSequence() {
     // update the heading with current level
     $("#level-title").text("Level " + level)
 
+    // Generate a random color.
     const NUMBER = 3;
     const randomNumber = Math.floor(Math.random() * (NUMBER + 1)); 
     const randomChosenColour = buttonColours[randomNumber]; 
@@ -90,13 +89,13 @@ function nextSequence() {
 } 
 
 
-
-// Function to play sound randomly and by the user
+// Play sound to follow color picks. 
 function playSound(name) {
     let audio = new Audio("../assets/sounds/" + name + ".mp3");
     audio.play();
 } 
 
+// Animation to follow color picks.
 function animatePress(currentColour) {
     const pressedBtn = $("#" + currentColour);
     pressedBtn.addClass("pressed"); 
