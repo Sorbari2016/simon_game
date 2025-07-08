@@ -8,11 +8,8 @@ const buttonColours = [
     "yellow"
 ]
 
-// Array to store the computer picks.
-let gamePattern = []; 
-
-// Array to store the user color picks.
-let userClickedPattern = []; 
+// Arrays to store the computer picks, & user color picks.
+let gamePattern = [], userClickedPattern = []; 
 
 // To track if the game has started, and level.
 let started = false, level = 0;
@@ -46,7 +43,7 @@ function checkAnswer(currentLevel) {
 
         if (gamePattern.length === userClickedPattern.length) {
         
-        setTimeout(nextSequence, 100);
+        setTimeout(nextSequence, 500);
          
         }                
         
