@@ -1,4 +1,4 @@
-# Simon Game Project 
+![image](https://github.com/user-attachments/assets/8c62d662-4e32-4db8-bba5-8a44d8da71b4)# Simon Game Project 
 
 ## Project Objective
 - For this project, I am tasked to build the classical Simon electronic game.
@@ -17,5 +17,6 @@
 - JQuery.
 
 ## Check out the Game
+![Simon Game](https://github.com/Sorbari2016/simon_game/blob/main/assets/images/Simon_Game.png)
 
 [Play The Simon Game](https://sorbari2016.github.io/simon_game/)
