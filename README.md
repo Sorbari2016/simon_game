@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/8c62d662-4e32-4db8-bba5-8a44d8da71b4)# Simon Game Project 
+# Simon Game Project 
 
 ## Project Objective
 - For this project, I am tasked to build the classical Simon electronic game.
