@@ -1,7 +1,7 @@
 // SCRIPT CODE WITH JQUERY
 
 // Create an empty array
-const gamePattern = []; 
+let gamePattern = []; 
 
 // 
 let userClickedPattern = []; 
@@ -107,11 +107,19 @@ function checkAnswer(currentLevel) {
         }, 200);
 
         $("#level-title").text("Game Over, Press Any Key to Restart")
-        
+
+        startOver(); 
     }
     
 }
 
+
+// To restart the game 
+function startOver() {
+    level = 0; 
+    gamePattern = []; 
+    started = false; 
+}
 
 
 
