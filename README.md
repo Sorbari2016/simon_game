@@ -17,6 +17,7 @@
 - JQuery.
 
 ## Check out the Game
+[Play The Simon Game](https://sorbari2016.github.io/simon_game/)
 ![Simon Game](https://github.com/Sorbari2016/simon_game/blob/main/assets/images/Simon_Game.png)
 
-[Play The Simon Game](https://sorbari2016.github.io/simon_game/)
+
