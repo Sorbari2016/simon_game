@@ -19,7 +19,7 @@ $(document).keydown(function() { //Add event listeners to the keys
     if (!started) {
         $("#level-title").text("Level " + level); // Change heading to Level 1 
     nextSequence();    // Get computer color
-    started = true;
+    started = true; //prevent restarting the game on subsequent keypresses.
   }
     
 });
